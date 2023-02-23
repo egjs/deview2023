@@ -5,7 +5,11 @@ export interface ResizeWatcherReactiveState {
   height: number;
 }
 
-export type ResizeWatcherReactiveInstance = ReactiveObject<ResizeWatcherReactiveState>;
+export type ResizeWatcherReactiveInstance = ReactiveObject<{
+  width: number;
+  height: number;
+  setWidth(width: number): void;
+}>;
 export interface ResizeWatcherEvents {
   resize: {
     width: number;
@@ -16,13 +20,20 @@ export interface ResizeWatcherEvents {
 export const REACTIVE: ReactiveSetupAdapter<
   ResizeWatcherReactiveInstance,
   ResizeWatcherReactiveState,
-  never,
+  "setWidth",
   {},
   ResizeWatcherEvents
-> = ({ onInit, onDestroy, emit, setEvents }) => {
+> = ({ onInit, onDestroy, emit, setEvents, setMethods }) => {
   setEvents(["resize"]);
+  setMethods(["setWidth"]);
 
-  const obj = reactive({ width: 0, height: 0 });
+  const obj = reactive({
+    width: 0,
+    height: 0,
+    setWidth(nextWidth: number) {
+      obj.width = nextWidth;
+    },
+  });
   const callback = () => {
     obj.width = window.innerWidth;
     obj.height = window.innerHeight;
