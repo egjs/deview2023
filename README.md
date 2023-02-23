@@ -49,7 +49,7 @@ https://github.com/egjs/deview2023/blob/main/packages/svelte-resize-watcher/src/
 
 
 * Core Reactive Adapter:
-https://github.com/egjs/deview2023/blob/main/packages/resize-watcher/index.ts
+https://github.com/egjs/deview2023/blob/main/packages/resize-watcher/src/index.ts
 * React Code:
 https://github.com/egjs/deview2023/blob/main/packages/react-resize-watcher/src/react-resize-watcher/useResizeWatcher.ts
 * Vue2 Code:
