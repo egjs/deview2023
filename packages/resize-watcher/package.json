@@ -1,0 +1,34 @@
+{
+	"name": "@egjs-deview2023/resize-watcher",
+	"version": "0.0.1",
+	"description": "for DEVIEW2023",
+	"main": "./dist/index.cjs.js",
+	"module": "./dist/index.esm.js",
+	"types": "declaration/index.d.ts",
+	"scripts": {
+		"start": "rollup -c -w",
+		"build": "rm -rf ./dist ./declaration && rollup -c && npm run declaration",
+		"declaration": "rm -rf declaration && tsc -p tsconfig.declaration.json"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/egjs/deview2023"
+	},
+	"author": "NAVER Corp.",
+	"license": "MIT",
+	"files": [
+		"./*",
+		"declaration/*",
+		"dist/*"
+	],
+	"dependencies": {
+		"@cfcs/core": "^0.0.26",
+		"@egjs/build-helper": "^0.1.2"
+	},
+	"devDependencies": {
+		"@egjs/build-helper": "^0.1.2",
+		"print-coveralls": "^1.2.2",
+		"tslib": "^2.3.1",
+		"typescript": "~4.1"
+	}
+}
